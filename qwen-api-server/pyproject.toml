@@ -1,0 +1,83 @@
+[project]
+name = "qwen-api-server"
+version = "0.1.0"
+description = "OpenAI-compatible API server for Qwen2.5-Coder models"
+authors = [
+    {name = "Tharindu Sankalpa", email = "wltsankalpa@gmail.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+
+dependencies = [
+    # Core FastAPI dependencies
+    "fastapi>=0.104.1",
+    "uvicorn[standard]>=0.24.0",
+    "python-multipart>=0.0.6",
+    
+    # ML/AI dependencies
+    "torch>=2.1.0",
+    "transformers>=4.44.0",
+    "accelerate>=0.33.0",
+    "bitsandbytes>=0.43.3",
+    "sentencepiece>=0.2.0",
+    
+    # API utilities
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    
+    # Monitoring and metrics
+    "prometheus-client>=0.19.0",
+    
+    # Rate limiting
+    "slowapi>=0.1.9",
+    
+    # Async HTTP client (for testing)
+    "aiohttp>=3.9.0",
+    
+    # Environment management
+    "python-dotenv>=1.0.0",
+    
+    # Logging
+    "structlog>=23.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.25.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.25.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.7.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
