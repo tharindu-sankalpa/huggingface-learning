@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "aa4c1d76-e871-4fdb-9a59-f695dd5532bb",
+		"name": "qwen-self-hosting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13629262"
+	},
+	"item": [
+		{
+			"name": "Qwen2.5-Coder-7B-Instruct",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/predict/?image_url=https://images.unsplash.com/photo-1506634572416-48cdfe530110?q=80&w=1285&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict",
+						""
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://images.unsplash.com/photo-1506634572416-48cdfe530110?q=80"
+						},
+						{
+							"key": "w",
+							"value": "1285"
+						},
+						{
+							"key": "auto",
+							"value": "format"
+						},
+						{
+							"key": "fit",
+							"value": "crop"
+						},
+						{
+							"key": "ixlib",
+							"value": "rb-4.1.0"
+						},
+						{
+							"key": "ixid",
+							"value": "M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qwen2.5-Coder-32B-Instruct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/tharindu/Downloads/20250809_101249.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qwen3-32B",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "your-secret-api-key",
+						"type": "text"
+					},
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/tharindu/Downloads/20250809_101249.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qwen3-30B-A3B",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/tharindu/Downloads/model2.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qwen3-Coder-30B-A3B-Instruct-predit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/tharindu/Downloads/model1.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qwen3-Coder-30B-A3B-Instruct-batch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"images\": [\n        \"base64_encoded_image1\",\n        \"base64_encoded_image2\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
